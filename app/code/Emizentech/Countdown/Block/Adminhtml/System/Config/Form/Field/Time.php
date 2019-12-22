@@ -1,11 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field;
 
 use Magento\Backend\Block\Template\Context;
-use Magento\Framework\Stdlib\DateTime;
 use Yotpo\Yotpo\Model\Config as YotpoConfig;
 
+/**
+ * Class Time
+ * @package Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field
+ */
 class Time extends \Magento\Config\Block\System\Config\Form\Field
 {
     /**
@@ -14,6 +18,7 @@ class Time extends \Magento\Config\Block\System\Config\Form\Field
     private $yotpoConfig;
 
     /**
+     * Time constructor.
      * @param Context $context
      * @param YotpoConfig $yotpoConfig
      * @param array $data
@@ -27,6 +32,11 @@ class Time extends \Magento\Config\Block\System\Config\Form\Field
         parent::__construct($context, $data);
     }
 
+    /**
+     * Render element
+     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * @return string
+     */
     public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {
         return parent::render($element);

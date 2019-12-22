@@ -1,14 +1,22 @@
 <?php
+declare(strict_types=1);
+
 namespace Emizentech\Countdown\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 
+/**
+ * Class InstallSchema
+ * @package Emizentech\Countdown\Setup
+ */
 class InstallSchema implements InstallSchemaInterface
 {
     /**
-     * {@inheritdoc}
+     * @param SchemaSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @throws \Zend_Db_Exception
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {

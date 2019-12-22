@@ -1,15 +1,14 @@
 <?php
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
+declare(strict_types=1);
+
 namespace Emizentech\Countdown\Block\Product;
 
 use Magento\Framework\Registry;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+
 /**
- * Product View block
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * Class View
+ * @package Emizentech\Countdown\Block\Product
  */
 class View extends \Magento\Catalog\Block\Product\View
 {
@@ -17,17 +16,15 @@ class View extends \Magento\Catalog\Block\Product\View
      * @var Registry
      */
     protected $registry;
+
     /**
-     * @var Registry
+     * @var \Psr\Log\LoggerInterface
      */
     private $logger;
 
     /**
-     * Constructor.
-     * @param Registry $registry
-     */
-    /**
-     * @param Context $context
+     * View constructor.
+     * @param \Magento\Catalog\Block\Product\Context $context
      * @param \Magento\Framework\Url\EncoderInterface $urlEncoder
      * @param \Magento\Framework\Json\EncoderInterface $jsonEncoder
      * @param \Magento\Framework\Stdlib\StringUtils $string
@@ -35,11 +32,11 @@ class View extends \Magento\Catalog\Block\Product\View
      * @param \Magento\Catalog\Model\ProductTypes\ConfigInterface $productTypeConfig
      * @param \Magento\Framework\Locale\FormatInterface $localeFormat
      * @param \Magento\Customer\Model\Session $customerSession
-     * @param ProductRepositoryInterface|\Magento\Framework\Pricing\PriceCurrencyInterface $productRepository
+     * @param ProductRepositoryInterface $productRepository
      * @param \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
+     * @param Registry $registry
+     * @param \Psr\Log\LoggerInterface $logger
      * @param array $data
-     * @codingStandardsIgnoreStart
-     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
         \Magento\Catalog\Block\Product\Context $context,
@@ -57,17 +54,17 @@ class View extends \Magento\Catalog\Block\Product\View
         array $data = []
     ) {
         parent::__construct(
-         $context,
-         $urlEncoder,
-         $jsonEncoder,
-         $string,
-         $productHelper,
-         $productTypeConfig,
-         $localeFormat,
-         $customerSession,
-         $productRepository,
-         $priceCurrency,
-         $data
+            $context,
+            $urlEncoder,
+            $jsonEncoder,
+            $string,
+            $productHelper,
+            $productTypeConfig,
+            $localeFormat,
+            $customerSession,
+            $productRepository,
+            $priceCurrency,
+            $data
         );
 
         $this->registry = $registry;

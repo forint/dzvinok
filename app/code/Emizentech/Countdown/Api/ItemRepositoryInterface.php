@@ -1,7 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace Emizentech\Countdown\Api;
 
+/**
+ * Interface ItemRepositoryInterface
+ * @package Emizentech\Countdown\Api
+ */
 interface ItemRepositoryInterface
 {
     /**

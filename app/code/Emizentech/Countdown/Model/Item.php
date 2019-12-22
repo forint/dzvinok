@@ -1,12 +1,17 @@
 <?php
+declare(strict_types=1);
+
 namespace Emizentech\Countdown\Model;
 
 use Magento\Framework\Model\AbstractModel;
-
+/**
+ * Class model Item
+ * @package Emizentech\Countdown\Model\Item
+ */
 class Item extends AbstractModel
 {
     /**
-     * Initialize resource model
+     * Initialize model
      *
      * @return void
      */

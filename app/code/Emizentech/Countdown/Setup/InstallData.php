@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Emizentech\Countdown\Setup;
 
 use Magento\Eav\Setup\EavSetup;
@@ -7,6 +9,10 @@ use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 
+/**
+ * Class InstallData
+ * @package Emizentech\Countdown\Setup
+ */
 class InstallData implements InstallDataInterface
 {
     /**
@@ -14,7 +20,6 @@ class InstallData implements InstallDataInterface
     *
     * @var EavSetupFactory
     */
-
     private $eavSetupFactory;
 
     /**
@@ -27,7 +32,12 @@ class InstallData implements InstallDataInterface
         $this->eavSetupFactory = $eavSetupFactory;
     }
 
- 
+    /**
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Zend_Validate_Exception
+     */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         /** @var EavSetup $eavSetup */
@@ -61,7 +71,6 @@ class InstallData implements InstallDataInterface
             'apply_to' => 'simple,configurable,virtual,bundle,downloadable'
             ]
             );
-
         }
 
 }

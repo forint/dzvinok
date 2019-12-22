@@ -1,18 +1,22 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Emizentech\Countdown\Model;
 
 use Emizentech\Countdown\Model\ResourceModel\Item;
 use Emizentech\Countdown\Api\ItemRepositoryInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
 
+/**
+ * Class ItemRepository
+ * @package Emizentech\Countdown\Model
+ */
 class ItemRepository implements ItemRepositoryInterface
 {
     /**
      * @var Item $item
      */
     protected $item;
+
     /**
      * @var ItemFactory $itemFactory
      */
@@ -35,17 +39,13 @@ class ItemRepository implements ItemRepositoryInterface
     {
         //your code
     }
+
     /**
      * Retrieve item data.
      */
     public function getById($itemId)
     {
-       /* $item = $this->itemFactory->create();
-        $this->item->load($item, $itemId);
-        if (!$item->getId()) {
-            //throw new NoSuchEntityException(__('Item with id "%1" does not exist.', $itemId));
-        }
-        return $item;*/
+        //your code
     }
     /**
      * Retrieve item data.
@@ -56,7 +56,6 @@ class ItemRepository implements ItemRepositoryInterface
         $item->load($itemIp, 'ip');
         if (!$item->getId()) {
             return false;
-            //throw new NoSuchEntityException(__('Item with id "%1" does not exist.', $itemIp));
         }
         return $item;
     }
