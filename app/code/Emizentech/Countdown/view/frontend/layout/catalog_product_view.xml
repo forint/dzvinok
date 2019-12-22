@@ -7,10 +7,16 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-	<head>
+	<!--<head>
         <css src="Emizentech_Countdown::css/jquery.countdownTimer.css"/>
-    </head>
-    <referenceContainer name="product.info.main">
-        <block class="Emizentech\Countdown\Block\Product\View" name="product.info.timer" as="productInfoCountdown" template="Emizentech_Countdown::countdown.phtml" after="alert.urls"/>        
-    </referenceContainer>
+    </head>-->
+    <body>
+        <referenceContainer name="product.info.main">
+            <referenceBlock name="product.info.options.wrapper.bottom">
+                <referenceBlock name="product.info.addtocart.additional">
+                    <block class="Emizentech\Countdown\Block\Product\View" name="product.info.timer" as="productInfoCountdown" template="Emizentech_Countdown::countdown.phtml" before="-"/>
+                </referenceBlock>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
 </page>

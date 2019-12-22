@@ -17,7 +17,36 @@
                 </field>
                  <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Title On Countdown</label>
-                </field>               
+                    <comment>$1 days $2 hours $3 minutes $4 seconds</comment>
+                </field>
+                <field id="monday" translate="Monday" sortOrder="3" type="time" showInDefault="1" showInStore="1" >
+                    <label>Monday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
+                <field id="tuesday" translate="Tuesday" sortOrder="4" type="time" showInDefault="1" showInStore="1" >
+                    <label>Tuesday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
+                <field id="wednesday" translate="Wednesday" sortOrder="5" type="time" showInDefault="1" showInStore="1" >
+                    <label>Wednesday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
+                <field id="thursday" translate="Thursday" sortOrder="6" type="time" showInDefault="1" showInStore="1" >
+                    <label>Thursday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
+                <field id="friday" translate="Friday" sortOrder="7" type="time" showInDefault="1" showInStore="1" >
+                    <label>Friday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
+                <field id="saturday" translate="Saturday" sortOrder="8" type="time" showInDefault="1" showInStore="1" >
+                    <label>Saturday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
+                <field id="sunday" translate="Sunday" sortOrder="9" type="time" showInDefault="1" showInStore="1" >
+                    <label>Sunday</label>
+                    <frontend_model>Emizentech\Countdown\Block\Adminhtml\System\Config\Form\Field\Time</frontend_model>
+                </field>
             </group>
         </section>
     </system>
