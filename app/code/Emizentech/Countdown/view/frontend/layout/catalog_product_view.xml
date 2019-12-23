@@ -4,7 +4,7 @@
         <referenceContainer name="product.info.main">
             <referenceBlock name="product.info.options.wrapper.bottom">
                 <referenceBlock name="product.info.addtocart.additional">
-                    <block class="Emizentech\Countdown\Block\Product\View" name="product.info.timer" as="productInfoCountdown" template="Emizentech_Countdown::countdown.phtml" before="-"/>
+                    <block class="Emizentech\Countdown\Block\Product\View" name="product.info.timer" as="productInfoCountdown" template="Emizentech_Countdown::countdown.phtml" before="-" cacheable="false"/>
                 </referenceBlock>
             </referenceBlock>
         </referenceContainer>

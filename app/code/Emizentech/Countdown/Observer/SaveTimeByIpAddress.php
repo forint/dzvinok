@@ -7,7 +7,6 @@ use Emizentech\Countdown\Helper\Data;
 use Magento\Framework\DataObjectFactory;
 use Magento\Framework\Registry;
 use Emizentech\Countdown\Model\ItemFactory;
-//use Emizentech\Countdown\Model\Item\CollectionFactory;
 use Emizentech\Countdown\Api\ItemRepositoryInterface;
 use Magento\Framework\Stdlib\DateTime\DateTimeFactory;
 use Magento\Framework\Controller\ResultFactory;
@@ -89,6 +88,9 @@ class SaveTimeByIpAddress implements \Magento\Framework\Event\ObserverInterface
     }
 
     /**
+     * Set first visit time to registry,
+     * otherwise save time to db and redirect
+     *
      * @param \Magento\Framework\Event\Observer $observer
      * @return $this|void
      * @throws \Exception
@@ -96,7 +98,12 @@ class SaveTimeByIpAddress implements \Magento\Framework\Event\ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $existItem = $this->itemRepository->getByIp($this->helper->getRemoteIpAddress());
-        if ($existItem){
+        if ($existItem && $existItem->getVisit()){
+            $visitDateArray = explode(' ', $existItem->getVisit());
+            $visitDate = $visitDateArray['0'];
+        }
+
+        if ($existItem && isset($visitDate) && $visitDate == date('Y-m-d')){
             if (!$this->registry->registry('visit_per_day')){
                 $this->registry->register('visit_per_day', $existItem->getVisit());
             }
@@ -116,34 +123,10 @@ class SaveTimeByIpAddress implements \Magento\Framework\Event\ObserverInterface
             $item->save();
 
             $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-
-            // Your code
-
             $resultRedirect->setUrl($this->redirect->getRefererUrl());
+
             return $resultRedirect;
         }
-
-        /*$timestamp = $this->dateFactory->create()->gmtDate();
-        $dataObject = $this->objectFactory->create();
-        $dataObject->setData([
-            'ip' => $this->helper->getRemoteIpAddress(),
-            'visit' => $timestamp
-        ]);
-
-        $item = $this->itemFactory->create();
-        $item->addData([
-            'ip' => $this->helper->getRemoteIpAddress(),
-            'visit' => $timestamp
-        ]);
-        $item->save();*/
-        /*
-        print_r("<pre>");
-        print_r(get_class_methods($item));
-        print_r("</pre>");
-        die;
-        $item->setData('ip', $this->getRemoteIpAddress());
-        $item->setData('visit', date());
-        $item->save();*/
 
         return $this;
     }
