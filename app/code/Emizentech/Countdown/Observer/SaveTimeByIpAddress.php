@@ -92,7 +92,7 @@ class SaveTimeByIpAddress implements \Magento\Framework\Event\ObserverInterface
      * otherwise save time to db and redirect
      *
      * @param \Magento\Framework\Event\Observer $observer
-     * @return $this|void
+     * @return $this|\Magento\Framework\Controller\ResultInterface|void
      * @throws \Exception
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
@@ -108,17 +108,21 @@ class SaveTimeByIpAddress implements \Magento\Framework\Event\ObserverInterface
                 $this->registry->register('visit_per_day', $existItem->getVisit());
             }
         }else{
-            $timestamp = $this->dateFactory->create()->gmtDate();
+            // $timestamp = $this->dateFactory->create()->gmtDate();
+            $date = new \DateTime();
+            $date->setTimezone(new \DateTimeZone(date_default_timezone_get()));
+
+
             $dataObject = $this->objectFactory->create();
             $dataObject->setData([
                 'ip' => $this->helper->getRemoteIpAddress(),
-                'visit' => $timestamp
+                'visit' => $date->getTimestamp()
             ]);
 
             $item = $this->itemFactory->create();
             $item->addData([
                 'ip' => $this->helper->getRemoteIpAddress(),
-                'visit' => $timestamp
+                'visit' => $date->getTimestamp()
             ]);
             $item->save();
 

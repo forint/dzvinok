@@ -6,12 +6,20 @@ if($block->isCountdownEnabled() && $block->getPriceCountDown())
  <script>
 	require([
 		'jquery',
+        'mage/translate',
 		'Emizentech_Countdown/js/jquery.countdownTimer'
-	], function ($) {
+	], function ($,) {
 		jQuery("#future_date").countdowntimer({
 			startDate : "<?php echo date('Y/m/d H:i:s'); ?>",
 			dateAndTime : "<?php echo $block->getPriceCountDown(); ?>",
 			size : "md",
+            timeUp: function(){
+                var TimeUpText = $.mage.__("<?php echo $block->getTimeUpMessage(); ?>");
+                $('#future_date').html(TimeUpText);
+			    setTimeout(function(){
+                    $('#future_date').hide();
+                }, 3000);
+            },
 			regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
  			regexpReplaceWith: "<?php echo $block->getTitle(); ?>" //"$1 days $2 hours $3 minutes $4 seconds REMAINING"
 	    });
