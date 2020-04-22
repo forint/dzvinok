@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="https://use.fontawesome.com/releases/v5.7.1/css/all.css" src_type="url"/>
+        <css src="Dzvinok_Social::css/style.css" />
+        <!--<link src="Lib::jquery/jquery.min.js"/>-->
+        <link src="Dzvinok_Social::js/script.js" />
+    </head>
+    <body>
+        <!--<referenceContainer name="product.info.main">
+            <referenceBlock name="product.info.options.wrapper.bottom">
+                <referenceBlock name="product.info.addtocart.additional">
+                    <block class="Magento\Catalog\Block\Product\View" name="product.info.social.media" template="Dzvinok_Social::product/view/social.phtml"/>
+                </referenceBlock>
+            </referenceBlock>
+        </referenceContainer>-->
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <referenceContainer name="product.info.extrahint">
+                    <referenceContainer name="product.info.social">
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.social.media" template="Dzvinok_Social::product/view/social.phtml"/>
+                    </referenceContainer>
+                </referenceContainer>
+            </referenceContainer>
+        </referenceContainer>
+    </body>
+</page>

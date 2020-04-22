@@ -1,0 +1,22 @@
+<?php $_product = $block->getProduct(); ?>
+<span class="social-share-tooltip">
+    <a href="#" class="action tooltip-toggle" data-toggle="tooltip">
+        <i id="share-social" class="fas fa-share-alt"></i>
+        <span>Share</span>
+    </a>
+    <div class="tooltip-content social-icons" data-role="social-icons">
+        <!--<a href="https://www.facebook.com/sharer/sharer.php?u=<?php /*echo urlencode($_product->getProductUrl());*/?>&t=<?php /*echo urlencode($_product->getName())*/?>" onclick='javascript:window.open(this.href,"","width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes");return false' title="Share on FaceBook">-->
+        <a href="https://www.facebook.com/dialog/feed?app_id=831314264039434&display=popup&link=<?php echo urlencode($_product->getProductUrl()); ?>&redirect_uri=https://developers.facebook.com/tools/explorer" onclick='javascript:window.open(this.href,"","width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes");return false' title="Share on FaceBook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($_product->getProductUrl());?>(<?php echo urlencode($_product->getName())?>)" onclick='javascript:window.open(this.href,"","width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes");return false' title="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="viber://forward?text=<?php echo urlencode($_product->getProductUrl());?>(<?php echo urlencode($_product->getName())?>)" onclick='javascript:window.open(this.href,"","width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes");return false' title="Share on Twitter">
+            <i class="fab fa-viber"></i>
+        </a>
+        <a href="https://telegram.me/share/url?url=<?php echo urlencode($_product->getProductUrl());?>(<?php echo urlencode($_product->getName())?>)&text=<?php echo urlencode($_product->getDescription())?>" onclick='javascript:window.open(this.href,"","width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes");return false' title="Share on Twitter">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
+</span>

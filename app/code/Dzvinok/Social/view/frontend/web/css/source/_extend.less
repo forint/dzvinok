@@ -1,0 +1,54 @@
+.action.tooltip-toggle {
+  color: #666666;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.social-share-tooltip {
+  .tooltip-content {
+    margin-top: 0 !important;
+    min-width: 80px !important;
+    background: rgba(0, 0, 0, .8) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    top: 20px !important;
+    &::before, &::after {
+      top: -10px !important;
+    }
+  }
+  .social-icons {
+    > a {
+      display: inline-block;
+      float: left;
+      width: 20px;
+      font-size: 15px;
+      color: #fff;
+    }
+  }
+  .lib-tooltip(bottom);
+}
+.social-share-tooltip .tooltip-content:before {
+  border-bottom-color: rgba(0, 0, 0, .8) !important;
+}
+.social-share-tooltip .tooltip-content:after {
+  border-bottom-color: rgba(0, 0, 0, .8) !important;
+}
+/*.social-share-tooltip .tooltip-toggle:hover + .tooltip-content, .social-share-tooltip .tooltip-toggle:focus + .tooltip-content, .social-share-tooltip:hover .tooltip-content {
+  display: inline-block !important;;
+}*/
+/*
+.social-icons{
+  &:hover {
+    &:after {
+      background: #333;
+      background: rgba(0, 0, 0, .8);
+      border-radius: 5px;
+    }
+  }
+}*/
